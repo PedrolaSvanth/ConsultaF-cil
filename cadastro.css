@@ -1,0 +1,113 @@
+/* Importando a mesma fonte da tela de login */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 50px 15px; /* margem no topo e nas laterais */
+  background: #1abc9c;
+  min-height: 100vh; /* mantém altura mínima da tela */
+  overflow-y: auto; /* permite rolar verticalmente */
+}
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+}
+
+.wrapper .title {
+  height: 100px;
+  background: #16a085;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper form {
+  padding: 25px 35px;
+}
+
+.wrapper form .row {
+  height: 55px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.wrapper form .row input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 70px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+form .row input:focus {
+  border-color: #16a085;
+}
+
+form .row input::placeholder {
+  color: #999;
+}
+
+.wrapper form .row i {
+  position: absolute;
+  width: 55px;
+  height: 100%;
+  color: #fff;
+  font-size: 20px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper form .button input {
+  margin-top: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 0;
+  background: #16a085;
+  border: 1px solid #16a085;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.wrapper form .button input:hover {
+  background: #12876f;
+}
+
+.wrapper form .signup-link {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.wrapper form .signup-link a {
+  color: #16a085;
+  text-decoration: none;
+}
+
+.wrapper form .signup-link a:hover {
+  text-decoration: underline;
+}
