@@ -4,25 +4,47 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consulta Facil</title>
-  <link rel="stylesheet" href="login.css" />
+
+  <!-- Chamando estilização da Página -->
+  <link rel="stylesheet" href="/assets/css/login.css" />
+
+  <!-- Chamando biblioteca de ícones Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 <body>
+
+  <!-- Formulário de login -->
   <div class="wrapper">
     <div class="title"><span>Consulta Facil</span></div>
+
+    <!-- O atributo "action" define para onde os dados serão enviados após o envio do formulário -->
     <form action="#">
+
+      <!-- Campo de entrada para CPF -->
       <div class="row">
+
+        <!-- Ícone de usuário -->
         <i class="fas fa-user"></i>
         <input type="text" placeholder="CPF" required />
       </div>
+
+       <!-- Campo de entrada para senha -->
       <div class="row">
+
+        <!-- Ícone de cadeado -->
         <i class="fas fa-lock"></i>
         <input type="password" placeholder="Senha" required />
       </div>
+
+      <!-- Botão que envia para a página de recuperar senha -->
       <div class="pass"><a href="#">Esqueceu a senha?</a></div>
       <div class="row button">
+
+       <!-- Botão para enviar os dados e validar o login -->
         <input type="submit" value="Login" />
       </div>
+      
+      <!-- Botão que envia para a página do cadastro -->
       <div class="signup-link">Não tem cadastro? <a href="cadastro_v1.html">Cadastre agora</a></div>
     </form>
   </div>

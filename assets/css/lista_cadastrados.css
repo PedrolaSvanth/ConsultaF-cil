@@ -1,0 +1,160 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: #f8fdfd;
+}
+
+/* ==== Barra lateral ==== */
+.sidebar {
+  width: 230px;
+  background-color: #009e9e;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 8px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #00b3b3;
+}
+
+/* ==== Conteúdo principal ==== */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+header h1 {
+  color: #008080;
+  margin-bottom: 8px;
+}
+
+header h1 span {
+  color: #00a3a3;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #009e9e;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ==== Seção de usuários ==== */
+.user-section {
+  background: #ffffff;
+  border: 1px solid #cceaea;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.add-user {
+  background-color: #009e9e;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.add-user:hover {
+  background-color: #00b8b8;
+}
+
+/* ==== Tabela ==== */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th {
+  background-color: #e6f7f7;
+  color: #008080;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #bce0e0;
+}
+
+.user-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e0f0f0;
+}
+
+.user-table tr:hover {
+  background-color: #f5fafa;
+}
+
+/* ==== Botões ==== */
+button.edit, button.deactivate {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+button.edit {
+  background-color: #00b3b3;
+  color: white;
+}
+
+button.edit:hover {
+  background-color: #00cccc;
+}
+
+button.deactivate {
+  background-color: #e65c5c;
+  color: white;
+}
+
+button.deactivate:hover {
+  background-color: #ff6666;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuários</title>
+  <link rel="stylesheet" href="/assets/css/lista_cadastrados.css">
+</head>
+<body>
+
+  <!-- Barra lateral -->
+  <aside class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+
+      <!-- Botão lateral que leva para a página inicial do gerenciamento de usuarios -->
+      <li><a href="#">Página Inicial</a></li>
+
+      <!-- Botão lateral que leva para a página de gerenciamento de usuarios -->
+      <li><a href="#" class="active">Usuários</a></li>
+    </ul>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <main class="content">
+    <header>
+      <h1>Usuários <span>- Lista de Usuários do sistema</span></h1>
+      <nav class="breadcrumb">
+        <!-- Mostrando qual rota usuario levou para chegar nessa página -->
+        <a href="#">Página Inicial</a> &gt; 
+        <a href="#">Listagem de Usuários</a>
+      </nav>
+    </header>
+
+    <!-- Botão para realizar cadastro de usuarios por meio de algum Administrador -->
+    <section class="user-section">
+      <button class="add-user">Cadastrar Usuário</button>
+
+      <!-- Tabela onde nomeamos os dados que vão aparecer dos usuarios cadastrados -->
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Nascimento</th>
+            <th>Cep</th>
+            <th>Endereço</th>
+            <th>Número</th>
+            <th>Complemento</th>
+          </tr>
+        </thead>
+        <!-- Onde os dados dos usuarios vão aparecer por meio do codigo em PHP -->
+        <tbody>
+          <!-- AQUI VAI A TABELA -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>
