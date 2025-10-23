@@ -1,8 +1,8 @@
 <?php 
 include '../config/conexao.php';
 
-if($_SERVER['REQUEST_METHOD']=="POST"){
-    
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
     $id = $_POST["id"];
     $nome = $_POST["nome"];
     $email = $_POST["email"];
@@ -13,13 +13,29 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $endereco = $_POST["endereco"];
     $numero = $_POST["numero"];
     $complemento = $_POST["complemento"];
+    $senha = $_POST['senha'] ?? '';
+    $confirma_senha = $_POST['confirma_senha'] ?? '';
 
-    $sql = "UPDATE usuarios 
-            SET nome = ?, email = ?, cpf = ?, telefone = ?, data_nasc = ?, cep = ?, endereco = ?, numero = ?, complemento = ?
-            WHERE id = ?";
+    if (empty($senha) && empty($confirma_senha)) {
+        $sql = "UPDATE usuarios 
+                SET nome = ?, email = ?, cpf = ?, telefone = ?, data_nasc = ?, cep = ?, endereco = ?, numero = ?, complemento = ?
+                WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssssssssi", $nome, $email, $cpf, $telefone, $data_nasc, $cep, $endereco, $numero, $complemento, $id);
+    } else {
+        if ($senha !== $confirma_senha) {
+            echo "<script>alert('As senhas não coincidem!'); history.back();</script>";
+            exit;
+        }
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssssi", $nome, $email, $cpf, $telefone, $data_nasc, $cep, $endereco, $numero, $complemento, $id);
+        $senhaHash = password_hash($senha, PASSWORD_ARGON2ID);
+
+        $sql = "UPDATE usuarios 
+                SET nome = ?, email = ?, cpf = ?, telefone = ?, data_nasc = ?, cep = ?, endereco = ?, numero = ?, complemento = ?, senha = ?
+                WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssssssssssi", $nome, $email, $cpf, $telefone, $data_nasc, $cep, $endereco, $numero, $complemento, $senhaHash, $id);
+    }
 
     if ($stmt->execute()) {
         echo "
@@ -27,15 +43,16 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             alert('✅ Cadastro atualizado com sucesso!');
             setTimeout(() => {
                 window.location.href = '../controllers/listarUsuarios.php';
-            }, 100);
+            }, 300);
         </script>";
     } else {
-        echo "Erro ao atualizar o cadastro: " . $stmt->error;
+        echo 'Erro ao atualizar o cadastro: ' . $stmt->error;
     }
 
     $stmt->close();
+
 } else {
-   
+
     if (!isset($_GET['id'])) {
         die("ID do usuário não informado!");
     }
@@ -68,10 +85,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $html = str_replace('{COMPLEMENTO}', htmlspecialchars($usuario['complemento']), $html);
 
     echo $html;
-
 }
 
 $conn->close();
 exit;
-
 ?>
