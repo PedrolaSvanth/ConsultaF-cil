@@ -1,13 +1,22 @@
 <?php
 include '../config/conexao.php';
 
-$sql = "SELECT * FROM usuarios ORDER BY id ASC";
+$sql = 
+"SELECT 
+    u.*, 
+    ev.status_verificacao AS status_email
+ FROM usuarios u
+ LEFT JOIN email_verificacoes ev ON u.id = ev.usuario_id
+ ORDER BY u.id ASC
+";
 $resultado = $conn->query($sql);
 
 $linhas = "";
 
 if ($resultado->num_rows > 0) {
     while ($linha = $resultado->fetch_assoc()) {
+        $status = $linha['status_email'] ?? 'Sem verificação';
+
         $linhas .= "
         <tr>
             <td>{$linha['id']}</td>
@@ -20,6 +29,7 @@ if ($resultado->num_rows > 0) {
             <td>{$linha['endereco']}</td>
             <td>{$linha['numero']}</td>
             <td>{$linha['complemento']}</td>
+            <td>{$linha['status_email']}</td>
             <td>
                 
                 <form action='../controllers/editarUsuario.php' method='GET' style='display:inline;'>
@@ -37,7 +47,7 @@ if ($resultado->num_rows > 0) {
         </tr>";
     }
 } else {
-    $linhas = "<tr><td colspan='6' style='text-align:center;'>Nenhum usuário encontrado</td></tr>";
+    $linhas = "<tr><td colspan='12' style='text-align:center;'>Nenhum usuário encontrado</td></tr>";
 }
 
 $html = file_get_contents('../pages/lista_cadastrados_v2.html');

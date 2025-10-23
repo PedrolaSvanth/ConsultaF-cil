@@ -25,3 +25,12 @@ CREATE TABLE email_verificacoes (
     status_verificacao ENUM('pendente', 'confirmado', 'expirado', 'cancelado') DEFAULT 'pendente',
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
+
+CREATE TABLE recuperacao_senha (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    expira_em DATETIME NOT NULL,
+    usado TINYINT(1) DEFAULT 0,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);

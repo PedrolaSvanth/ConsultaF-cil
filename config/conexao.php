@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $username = 'root';
-$password = 'SENHA_DO_SEU_MYSQL'; // Aqui é a senha que você utiliza para entrar no mysql 
+$password = 'Pedro147896!'; // Aqui é a senha que você utiliza para entrar no mysql 
 $dbname = 'consulta_facil';
 
 //conectar 
