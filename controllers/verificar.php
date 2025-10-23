@@ -30,18 +30,17 @@ if (isset($_GET['codigo']) && isset($_GET['email'])) {
             exit;
 
         } elseif (strtotime($dados['expira_em']) <= time()) {
-            header("Location: verificacao_expirada.html");
-            exit;
+            echo "<script>alert('O link de verificação expirou. Solicite um novo.');</script>";
         } else {
-            header("Location: verificacao_ja_confirmada.html");
+            echo "<script>alert('Seu e-mail já foi confirmado anteriormente.');</script>";
             exit;
         }
     } else {
-        header("Location: verificacao_invalida.html");
+        echo "<script>alert('O link de verificação foi invalidado. Solicite um novo.');</script>";
         exit;
     }
 } else {
-    header("Location: verificacao_erro.html");
+    echo "<script>alert('tivemos um erro ao enviar o link de verificação. Solicite um novo.');</script>";
     $conn->close();
     exit;
 }
