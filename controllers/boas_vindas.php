@@ -23,17 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container">
-        <!-- Logo centralizada -->
-        <div class="logo-container">
-           <img src="img/logo.png" alt="logo Consulta Fácil" class="logo">
-
-
-        </div>
+        <img src="img/logo.png" alt="Logo Consulta Fácil" class="logo">
 
         <h2>Seja bem-vindo ao Consulta Fácil, <?php echo htmlspecialchars($_SESSION['apelido']); ?>!</h2>
-        
-        <form action="cadastro_cliente.php">
-            <button type="submit">Alterar cadastro</button>
+
+        <form action="cadastro_cliente.php" method="get">
+            <button type="submit" class="btn">Alterar cadastro</button>
+        </form>
+
+        <form action="home.php" method="get">
+            <button type="submit" class="btn">Ir à tela inicial</button>
         </form>
     </div>
 </body>

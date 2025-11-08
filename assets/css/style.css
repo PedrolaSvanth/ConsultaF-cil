@@ -80,3 +80,92 @@ button:hover {
     margin-top: 10px;
     filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
 }
+
+/* ====== Estilo geral ====== */
+body {
+  background-color: #0097b2;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ====== Tela Boas-Vindas ====== */
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #0097b2;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #0097b2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #007a91;
+}
+
+/* ====== Tela Home ====== */
+.wrapper {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 450px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.title span {
+  font-size: 26px;
+  color: #0097b2;
+  font-weight: bold;
+}
+
+.home-container h2 {
+  color: #0097b2;
+  margin-top: 20px;
+}
+
+.home-container p {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.home-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #0097b2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.home-btn:hover {
+  background-color: #007a91;
+}
