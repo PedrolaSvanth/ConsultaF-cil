@@ -1,15 +1,12 @@
 <?php
-$host = 'localhost';
-$username = 'root';
-$password = 'Pedro147896!'; // Aqui é a senha que você utiliza para entrar no mysql 
-$dbname = 'consulta_facil';
+$host = "localhost";
+$usuario = "root";
+$senha = "Leandra@";
+$banco = "consulta_facil";
 
-//conectar 
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($host, $usuario, $senha, $banco);
 
-//verificar conexao
-if($conn->connect_error){
-    die("erro ao conectar ".$conn->connect_error);
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
 }
-
 ?>
