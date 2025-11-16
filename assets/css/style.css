@@ -65,7 +65,7 @@ button:hover {
 }
 
 .logo-container img {
-    width: 150px; /* ajuste o tamanho se quiser */
+    width: 250px; /* ajuste o tamanho se quiser */
     height: auto;
 }
 
@@ -103,8 +103,10 @@ body {
 }
 
 .logo {
-  width: 100px;
+  width: 250px;
+  max-width: 100%;
   margin-bottom: 20px;
+
 }
 
 h2 {
@@ -113,16 +115,18 @@ h2 {
 }
 
 .btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #0097b2;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 16px;
+    display: inline-block; /* Faz o botão se comportar como botão normal */
+    padding: 10px 20px;    /* Espaçamento interno */
+    font-size: 16px;       /* Tamanho da fonte */
+    border: none;          /* Remove borda padrão */
+    border-radius: 8px;    /* Cantos arredondados */
+    background-color: #007a91; /* Cor do botão (verde) */
+    color: white;          /* Cor do texto */
+    cursor: pointer;       /* Cursor de mão ao passar o mouse */
+    text-decoration: none; /* Remove sublinhado de links */
+    transition: background-color 0.3s ease; /* Animação de hover */
 }
+
 
 .btn:hover {
   background-color: #007a91;
@@ -168,4 +172,10 @@ h2 {
 
 .home-btn:hover {
   background-color: #007a91;
+}
+
+/* Container dos botões para dar espaçamento vertical */
+.btn-container {
+    margin: 10px 0;       /* Espaçamento acima e abaixo */
+    text-align: center;   /* Centraliza o botão horizontalmente */
 }

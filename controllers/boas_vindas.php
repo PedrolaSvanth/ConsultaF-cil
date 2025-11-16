@@ -1,15 +1,41 @@
 <?php
-include 'config/conexao.php';
 session_start();
+include '../config/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cliente_id = $_SESSION['cliente_id'];
 
-    $sql = "INSERT INTO saude (cliente_id, atividade_fisica, habitos_nocivos, diabetes, doenca_cronica, quais_doencas, alergias, quais_alergias)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $atividade_fisica = $_POST['atividade_fisica'];
+    $habitos_nocivos = $_POST['habitos_nocivos'];
+    $diabetes = $_POST['diabetes'];
+    $doenca_cronica = $_POST['doenca_cronica'];
+    $quais_doencas = $_POST['quais_doencas'] ?? null;
+    $alergias = $_POST['alergias'];
+    $quais_alergias = $_POST['quais_alergias'] ?? null;
+    $tipo_sanguineo = $_POST['tipo_sanguineo'];
+
+    $sql = "INSERT INTO saude 
+           (atividade_fisica, habitos_nocivos, diabetes, doenca_cronica, quais_doencas, alergias, quais_alergias, tipo_sanguineo, cliente_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isssssss", $cliente_id, $_POST['atividade_fisica'], $_POST['habitos_nocivos'],
-        $_POST['diabetes'], $_POST['doenca_cronica'], $_POST['quais_doencas'], $_POST['alergias'], $_POST['quais_alergias']);
+    if (!$stmt) {
+        die("Erro no prepare: " . $conn->error);
+    }
+
+    $stmt->bind_param(
+        "ssssssssi",
+        $atividade_fisica,
+        $habitos_nocivos,
+        $diabetes,
+        $doenca_cronica,
+        $quais_doencas,
+        $alergias,
+        $quais_alergias,
+        $tipo_sanguineo,
+        $cliente_id
+    );
+
     $stmt->execute();
 }
 ?>
@@ -19,21 +45,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Boas-vindas</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <div class="container">
-        <img src="img/logo.png" alt="Logo Consulta Fácil" class="logo">
+        <img src="../img/logo.png" alt="Logo Consulta Fácil" class="logo">
 
-        <h2>Seja bem-vindo ao Consulta Fácil, <?php echo htmlspecialchars($_SESSION['apelido']); ?>!</h2>
+        <h2>Seja bem-vindo ao Consulta Fácil, 
+            <?php echo htmlspecialchars($_SESSION['apelido'] ?? 'Usuário'); ?>!
+        </h2>
 
-        <form action="cadastro_cliente.php" method="get">
-            <button type="submit" class="btn">Alterar cadastro</button>
-        </form>
+        <div class="btn-container">
+            <form action="cadastro_cliente.php" method="get">
+                <button type="submit" class="btn">Alterar cadastro</button>
+            </form>
+        </div>
 
-        <form action="home.php" method="get">
-            <button type="submit" class="btn">Ir à tela inicial</button>
-        </form>
+        <div class="btn-container">
+            <a href="../pages/home.html" class="btn">Ir à tela inicial</a>
+        </div>
+
     </div>
 </body>
 </html>

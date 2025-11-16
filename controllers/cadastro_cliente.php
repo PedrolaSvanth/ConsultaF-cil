@@ -1,20 +1,60 @@
-<?php include 'config/conexao.php'; ?>
+<?php
+include '../config/conexao.php';
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Pegando valores enviados pelo formulário
+    $nome = $_POST['nome_completo'];
+    $cpf = $_POST['cpf'];
+    $data_nasc = $_POST['data_nascimento'];
+    $cep = $_POST['cep'];
+    $endereco = $_POST['endereco'];
+    $complemento = $_POST['complemento'];
+    $email = $_POST['email'];
+    $apelido = $_POST['apelido'];
+
+    // 1. SALVAR DADOS NO BANCO
+    $sql = "INSERT INTO clientes (nome_completo, cpf, data_nascimento, cep, endereco, complemento, email, apelido)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Erro no prepare: " . $conn->error);
+}
+    $stmt->bind_param("ssssssss", $nome, $cpf, $data_nasc, $cep, $endereco, $complemento, $email, $apelido);
+    $stmt->execute();
+
+    // 2. PEGAR O ID DO CLIENTE QUE ACABOU DE SER CRIADO
+    $cliente_id = $stmt->insert_id;
+
+   // 3. SALVAR NA SESSÃO
+$_SESSION['apelido'] = $apelido;
+$_SESSION['cliente_id'] = $cliente_id;
+
+// 4. REDIRECIONAR PARA A TELA DE CADASTRO DE SAÚDE
+header("Location: cadastro_saude.php");
+exit();
+
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Cliente</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <script>
-        // Função para buscar endereço via CEP
         async function buscarCEP() {
             const cep = document.getElementById("cep").value.replace(/\D/g, '');
             if (cep.length === 8) {
                 const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
                 const data = await response.json();
                 if (!data.erro) {
-                    document.getElementById("endereco").value = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
+                    document.getElementById("endereco").value =
+                        `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
                 } else {
                     alert("CEP não encontrado!");
                 }
@@ -25,7 +65,8 @@
 <body>
     <div class="container">
         <h2>Cadastro de Cliente</h2>
-        <form action="cadastro_saude.php" method="POST">
+        <form action="" method="POST">
+
             <label>Nome Completo:</label>
             <input type="text" name="nome_completo" required>
 

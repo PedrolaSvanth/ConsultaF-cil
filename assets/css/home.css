@@ -1,27 +1,30 @@
 /* home.css */
 /* Importing Google Fonts - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   padding: 15px;
-  background: #1abc9c;
+  background: #0097b2; /* NOVA COR */
   overflow: hidden;
 }
+
 img {
-    display: block;         /* Garante que seja tratada como bloco */
-    margin: 0 auto;         /* Centraliza horizontalmente */
-    width: 150px;           /* Ajusta o tamanho da logo */
-    height: auto;           /* Mantém proporção */
-    background: transparent; /* Remove fundo (se for SVG ou PNG transparente) */
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  height: auto;
+  background: transparent;
 }
 
 .wrapper {
@@ -31,9 +34,10 @@ img {
   border-radius: 5px;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 }
+
 .wrapper .title {
   height: 120px;
-  background: #16a085;
+  background: #0097b2; /* NOVA COR */
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 30px;
@@ -42,14 +46,17 @@ img {
   align-items: center;
   justify-content: center;
 }
+
 .wrapper form {
   padding: 25px 35px;
 }
+
 .wrapper form .row {
   height: 60px;
   margin-top: 15px;
   position: relative;
 }
+
 .wrapper form .row input {
   height: 100%;
   width: 100%;
@@ -60,61 +67,73 @@ img {
   font-size: 18px;
   transition: all 0.3s ease;
 }
+
 form .row input:focus {
-  border-color: #16a085;
+  border-color: #0097b2; /* NOVA COR */
 }
+
 form .row input::placeholder {
   color: #999;
 }
+
 .wrapper form .row i {
   position: absolute;
   width: 55px;
   height: 100%;
   color: #fff;
   font-size: 22px;
-  background: #16a085;
-  border: 1px solid #16a085;
+  background: #0097b2; /* NOVA COR */
+  border: 1px solid #0097b2; /* NOVA COR */
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .wrapper form .pass {
   margin-top: 12px;
 }
+
 .wrapper form .pass a {
-  color: #16a085;
+  color: #0097b2; /* NOVA COR */
   font-size: 17px;
   text-decoration: none;
 }
+
 .wrapper form .pass a:hover {
   text-decoration: underline;
 }
+
 .wrapper form .button input {
   margin-top: 20px;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
   padding-left: 0px;
-  background: #16a085;
-  border: 1px solid #16a085;
+  background: #0097b2; /* NOVA COR */
+  border: 1px solid #0097b2; /* NOVA COR */
   cursor: pointer;
 }
+
 form .button input:hover {
-  background: #12876f;
+  background: #007a91; /* Versão escura para hover */
 }
+
 .wrapper form .signup-link {
   text-align: center;
   margin-top: 45px;
   font-size: 17px;
 }
+
 .wrapper form .signup-link a {
-  color: #16a085;
+  color: #0097b2; /* NOVA COR */
   text-decoration: none;
 }
+
 form .signup-link a:hover {
   text-decoration: underline;
 }
+
 /* Centraliza o conteúdo dentro da estrutura já existente */
 .home-container {
   text-align: center;
@@ -122,7 +141,7 @@ form .signup-link a:hover {
 }
 
 .home-container h2 {
-  color: #16a085;
+  color: #0097b2; /* NOVA COR */
   margin-bottom: 10px;
   font-size: 26px;
 }
@@ -132,7 +151,7 @@ form .signup-link a:hover {
   margin-bottom: 25px;
 }
 
-/* Estilização dos botões */
+/* Botões */
 .buttons {
   display: flex;
   flex-direction: column;
@@ -140,7 +159,7 @@ form .signup-link a:hover {
 }
 
 .home-btn {
-  background-color: #16a085;
+  background-color: #0097b2; /* NOVA COR */
   color: white;
   border: none;
   padding: 15px;
@@ -156,7 +175,7 @@ form .signup-link a:hover {
 }
 
 .home-btn:hover {
-  background-color: #12876f;
+  background-color: #007a91; /* versão escura */
 }
 
 /* Ícones */

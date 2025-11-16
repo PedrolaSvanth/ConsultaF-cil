@@ -1,5 +1,5 @@
-<?php
-include 'config/conexao.php';
+<?php include '../config/conexao.php'; 
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO clientes (nome_completo, cpf, data_nascimento, cep, endereco, complemento, email, apelido)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Erro no prepare: " . $conn->error);
+}
     $stmt->bind_param("ssssssss", $_POST['nome_completo'],$_POST['cpf'], $_POST['data_nascimento'], $_POST['cep'],
         $_POST['endereco'], $_POST['complemento'], $_POST['email'], $_POST['apelido']);
     $stmt->execute();
@@ -21,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Saúde</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <script>
         function mostrarCampo(id, mostrar) {
             document.getElementById(id).style.display = mostrar ? 'block' : 'none';
@@ -32,6 +35,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <h2>Saúde</h2>
         <form action="boas_vindas.php" method="POST">
+
+            <!-- NOVO CAMPO ADICIONADO: TIPO SANGUÍNEO -->
+            <label>Tipo sanguíneo:</label>
+            <select name="tipo_sanguineo" required>
+                <option value="">Selecione</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+            </select>
+            <!-- FIM DO CAMPO NOVO -->
+
             <label>Pratica atividade física?</label>
             <select name="atividade_fisica">
                 <option>Não</option>
