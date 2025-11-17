@@ -62,9 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="btn-container">
-            <a href="../pages/home.html" class="btn">Ir à tela inicial</a>
+            <a href="../controllers/telaprincipal.php" class="btn">Ir à tela inicial</a>
         </div>
 
     </div>
+</body>
+</html>
 </body>
 </html>
