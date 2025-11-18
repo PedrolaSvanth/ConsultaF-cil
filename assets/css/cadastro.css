@@ -11,10 +11,10 @@
 body {
   display: flex;
   justify-content: center;
-  padding: 50px 15px; /* margem no topo e nas laterais */
-  background: #1abc9c;
-  min-height: 100vh; /* mantém altura mínima da tela */
-  overflow-y: auto; /* permite rolar verticalmente */
+  padding: 50px 15px;
+  background: #0097b2;          /* cor principal no fundo */
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .wrapper {
@@ -28,7 +28,7 @@ body {
 
 .wrapper .title {
   height: 100px;
-  background: #16a085;
+  background: #0097b2;          /* título com a cor principal */
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 26px;
@@ -60,7 +60,7 @@ body {
 }
 
 form .row input:focus {
-  border-color: #16a085;
+  border-color: #0097b2;        /* foco na cor principal */
 }
 
 form .row input::placeholder {
@@ -73,8 +73,8 @@ form .row input::placeholder {
   height: 100%;
   color: #fff;
   font-size: 20px;
-  background: #16a085;
-  border: 1px solid #16a085;
+  background: #0097b2;          /* ícone na cor principal */
+  border: 1px solid #0097b2;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -87,14 +87,14 @@ form .row input::placeholder {
   font-size: 18px;
   font-weight: 500;
   padding-left: 0;
-  background: #16a085;
-  border: 1px solid #16a085;
+  background: #0097b2;          /* botão na cor principal */
+  border: 1px solid #0097b2;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .wrapper form .button input:hover {
-  background: #12876f;
+  background: #007a8f;          /* hover mais escuro */
 }
 
 .wrapper form .signup-link {
@@ -104,7 +104,7 @@ form .row input::placeholder {
 }
 
 .wrapper form .signup-link a {
-  color: #16a085;
+  color: #0097b2;               /* link na cor principal */
   text-decoration: none;
 }
 
