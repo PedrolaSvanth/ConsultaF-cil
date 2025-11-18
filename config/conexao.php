@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $usuario = "root";
-$senha = "Leandra@";
-$banco = "consulta_facil";
+$senha = "Leandra@"; // Coloque a senha do seu banco 
+$banco = "consulta_facil"; // Coloque o nome do seu banco criado
 
 $conn = new mysqli($host, $usuario, $senha, $banco);
 
