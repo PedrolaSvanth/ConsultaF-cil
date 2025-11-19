@@ -12,7 +12,6 @@
   <div class="wrapper">
     <div class="title"><span>Consulta Facil</span></div>
 
-    
     <form action="../controllers/login.php" method="POST">
       <div class="row">
         <i class="fas fa-user"></i>
@@ -20,19 +19,22 @@
       </div>
 
       <div class="row">
-        <i class="fas fa-lock"></i>
-        <input type="password" name="senha" placeholder="Senha" required />
+        <i class="fas fa-id-badge"></i>
+        <!-- agora é apelido, não senha -->
+        <input type="text" name="apelido" placeholder="Apelido" required />
       </div>
 
-      <div class="pass"><a href="../pages/recuperar_senha_v1.html">Esqueceu a senha?</a></div>
-      
+      <!-- Se quiser pode tirar esse link ou adaptar para recuperação de apelido -->
+      <!-- <div class="pass"><a href="../pages/recuperar_senha_v1.html">Esqueceu seus dados?</a></div> -->
+
       <div class="row button">
         <input type="submit" value="Login" />
       </div>
-      
-      <div class="signup-link">Não tem cadastro? <a href="../controllers/cadastro_cliente.php">Cadastre agora</a></div>
+
+      <div class="signup-link">
+        Não tem cadastro? <a href="../controllers/cadastro_cliente.php">Cadastre agora</a>
+      </div>
     </form>
   </div>
 </body>
 </html>
-

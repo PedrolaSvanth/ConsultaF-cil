@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Medicamento</title>
+    <!-- Usa o MESMO CSS do cadastro de cliente -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Medicamento</h2>
+
+        <form action="../controllers/cadastrar_medicamentos.php" method="POST">
+
+            <label>Nome Comercial *</label>
+            <input type="text" name="nome_comercial" required>
+
+            <label>Princípio Ativo *</label>
+            <input type="text" name="principio_ativo" required>
+
+            <label>Uso Restrito (tarja preta, etc.) *</label>
+            <select name="uso_restrito" required>
+                <option value="0">Não</option>
+                <option value="1">Sim</option>
+            </select>
+
+            <label>Quantidade em Estoque *</label>
+            <input type="number" name="quantidade_estoque" min="0" value="0" required>
+
+            <label>Unidade de Medida</label>
+            <input type="text" name="unidade_medida" placeholder="Ex.: comprimidos, mg, ml">
+
+            <button type="submit">Salvar medicamento</button>
+
+            <!-- link de voltar, igual estilo “simples” -->
+            <div style="margin-top: 10px; text-align:center;">
+                <a href="../controllers/listarMedicamentos.php">Voltar para lista de medicamentos</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

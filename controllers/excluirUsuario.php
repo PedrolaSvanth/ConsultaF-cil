@@ -3,10 +3,10 @@ include '../config/conexao.php';
 
 $id = $_POST['id'];
 
-$sql1 = "DELETE FROM email_verificacoes WHERE usuario_id = $id";
+$sql1 = "DELETE FROM email_verificacoes WHERE cliente_id = $id";
 $conn->query($sql1);
 
-$sql2 = "DELETE FROM usuarios WHERE id = $id";
+$sql2 = "DELETE FROM clientes WHERE id = $id";
 
 if ($conn->query($sql2) === TRUE) {
     echo "

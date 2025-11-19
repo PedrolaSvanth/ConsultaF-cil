@@ -57,15 +57,16 @@ CREATE TABLE IF NOT EXISTS Medicamentos (
 );
 
 -- Cria tabela de estoque para Controle_estoque_farmacia
-CREATE TABLE IF NOT EXISTS estoque (
+CREATE TABLE estoque (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(150) NOT NULL,
-  descricao TEXT DEFAULT NULL,
+  id_medicamento INT NOT NULL,
   quantidade INT NOT NULL DEFAULT 0,
   preco DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  localizacao VARCHAR(100) NULL, -- opcional: prateleira, gaveta, etc.
   criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_medicamento) REFERENCES Medicamentos(id_medicamento)
+);
 
 CREATE TABLE IF NOT EXISTS Entradas (
     id_entrada INT AUTO_INCREMENT PRIMARY KEY,

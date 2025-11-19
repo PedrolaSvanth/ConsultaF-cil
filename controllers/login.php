@@ -3,37 +3,42 @@ session_start();
 include '../config/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cpf = $_POST['cpf'];
-    $senha = $_POST['senha'];
+    // Coleta e dá uma limpada básica nos dados
+    $cpf     = isset($_POST['cpf']) ? trim($_POST['cpf']) : '';
+    $apelido = isset($_POST['apelido']) ? trim($_POST['apelido']) : '';
 
-    $stmt = $conn->prepare("SELECT id, nome, email, senha 
-                            FROM usuarios 
-                            WHERE cpf = ?");
-    $stmt->bind_param("s", $cpf);
+    if ($cpf === '' || $apelido === '') {
+        echo "<script>
+                alert('❌ Informe o CPF e o apelido para entrar.');
+                window.location.href='../pages/login_v2.html';
+              </script>";
+        exit;
+    }
+
+    // Busca na tabela CLIENTES
+    $sql = "SELECT id, nome_completo, apelido, cpf 
+            FROM clientes 
+            WHERE cpf = ? AND apelido = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $cpf, $apelido);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows === 1) {
-        $usuario = $resultado->fetch_assoc();
+        $cliente = $resultado->fetch_assoc();
 
-         if (password_verify($senha, $usuario['senha'])) {
-            session_start();
-            $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            
-            header("Location: ../assets/img/EM_CONSTRUCAO.jpg");
-            exit;
+        // Seta as variáveis de sessão usadas no sistema
+        $_SESSION['cliente_id']      = $cliente['id'];
+        $_SESSION['cliente_nome']    = $cliente['nome_completo'];
+        $_SESSION['cliente_apelido'] = $cliente['apelido'];
 
-        } else {
-            echo "<script>
-                    alert('❌ CPF ou senha incorretos.');
-                    window.location.href='../pages/login_v2.html';
-                  </script>";
-            exit;
-        }
+        // Redireciona para a home/sistema
+        // Troque para a página inicial real do seu sistema
+        header("Location: ../controllers/telaprincipal.php");
+        exit;
     } else {
         echo "<script>
-                alert('❌ CPF não encontrado.');
+                alert('❌ CPF ou apelido incorretos.');
                 window.location.href='../pages/login_v2.html';
               </script>";
         exit;

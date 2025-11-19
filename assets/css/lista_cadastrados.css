@@ -8,13 +8,13 @@
 
 body {
   display: flex;
-  background-color: #f8fdfd;
+  background-color: #f3fbfd; /* leve fundo azulado */
 }
 
 /* ==== Barra lateral ==== */
 .sidebar {
   width: 230px;
-  background-color: #009e9e;
+  background-color: #0097b2; /* cor principal */
   color: white;
   height: 100vh;
   padding: 20px;
@@ -46,7 +46,7 @@ body {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  background-color: #00b3b3;
+  background-color: #00a5c6; /* variação mais clara */
 }
 
 /* ==== Conteúdo principal ==== */
@@ -56,12 +56,12 @@ body {
 }
 
 header h1 {
-  color: #008080;
+  color: #0097b2; /* título em azul */
   margin-bottom: 8px;
 }
 
 header h1 span {
-  color: #00a3a3;
+  color: #00a5c6;
   font-weight: 400;
   font-size: 18px;
 }
@@ -73,7 +73,7 @@ header h1 span {
 
 .breadcrumb a {
   text-decoration: none;
-  color: #009e9e;
+  color: #0097b2;
 }
 
 .breadcrumb a:hover {
@@ -83,7 +83,7 @@ header h1 span {
 /* ==== Seção de usuários ==== */
 .user-section {
   background: #ffffff;
-  border: 1px solid #cceaea;
+  border: 1px solid #c2e7f0;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -91,7 +91,7 @@ header h1 span {
 }
 
 .add-user {
-  background-color: #009e9e;
+  background-color: #0097b2;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -104,7 +104,7 @@ header h1 span {
 }
 
 .add-user:hover {
-  background-color: #00b8b8;
+  background-color: #00a5c6;
 }
 
 /* ==== Tabela ==== */
@@ -114,20 +114,20 @@ header h1 span {
 }
 
 .user-table th {
-  background-color: #e6f7f7;
-  color: #008080;
+  background-color: #e4f7fb;
+  color: #0097b2;
   text-align: left;
   padding: 10px;
-  border-bottom: 2px solid #bce0e0;
+  border-bottom: 2px solid #c2e7f0;
 }
 
 .user-table td {
   padding: 10px;
-  border-bottom: 1px solid #e0f0f0;
+  border-bottom: 1px solid #d9edf4;
 }
 
 .user-table tr:hover {
-  background-color: #f5fafa;
+  background-color: #f1fafc;
 }
 
 /* ==== Botões ==== */
@@ -142,12 +142,12 @@ button.edit, button.deactivate {
 }
 
 button.edit {
-  background-color: #00b3b3;
+  background-color: #00a5c6;
   color: white;
 }
 
 button.edit:hover {
-  background-color: #00cccc;
+  background-color: #00b5da;
 }
 
 button.deactivate {

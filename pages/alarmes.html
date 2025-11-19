@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Consulta Fácil - Alarmes</title>
+
+  <link rel="stylesheet" href="../assets/css/login.css" />
+  <link rel="stylesheet" href="../assets/css/home.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    .alarme-wrapper {
+      max-width: 450px;
+      background: #fff;
+      padding: 25px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #2b6cb0;
+    }
+
+    input, button {
+      width: 90%;
+      padding: 12px;
+      margin: 8px auto;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    #listaAlarmes {
+      margin-top: 20px;
+    }
+
+    .alarme-item {
+      background: #edf5ff;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border-left: 5px solid #2b6cb0;
+      text-align: left;
+    }
+
+    .alarme-item button {
+      width: auto;
+      padding: 6px 10px;
+      margin-right: 5px;
+      font-size: 14px;
+    }
+
+    .btn-voltar {
+      margin-top: 20px;
+      width: 200px;
+      background: #2b6cb0;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="title"><span>Alarmes de Medicação</span></div>
+
+    <div class="alarme-wrapper">
+
+      <h2><i class="fas fa-bell"></i> Gerenciar Alarmes</h2>
+
+      <form id="formAlarme">
+        <input type="text" id="nomeRemedio" placeholder="Nome do medicamento" required>
+        <input type="time" id="horaRemedio" required>
+        <button type="submit" class="home-btn">
+          <i class="fas fa-plus-circle"></i> Adicionar Alarme
+        </button>
+      </form>
+
+      <div id="listaAlarmes"></div>
+
+      <button class="btn-voltar" onclick="window.location.href='../dump/home.html'">
+        <i class="fas fa-arrow-left"></i> Voltar
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Áudio só carrega nesta página -->
+  <audio id="somAlarme" src="https://www.soundjay.com/buttons/sounds/beep-07.mp3"></audio>
+
+  <script>
+    let alarmes = JSON.parse(localStorage.getItem("alarmes")) || [];
+
+    const lista = document.getElementById('listaAlarmes');
+
+    function mostrarAlarmes() {
+      lista.innerHTML = '';
+
+      alarmes.forEach((a, index) => {
+        const div = document.createElement('div');
+        div.className = 'alarme-item';
+
+        div.innerHTML = `
+          <strong>${a.nome}</strong> — ${a.hora}<br>
+          <button onclick="editarAlarme(${index})"><i class="fas fa-edit"></i> Editar</button>
+          <button onclick="excluirAlarme(${index})" style="background:#c62828;color:white">
+            <i class="fas fa-trash"></i> Excluir
+          </button>
+        `;
+
+        lista.appendChild(div);
+      });
+    }
+
+    document.getElementById('formAlarme').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const nome = document.getElementById('nomeRemedio').value;
+      const hora = document.getElementById('horaRemedio').value;
+
+      alarmes.push({ nome, hora, disparadoHoje: false });
+      localStorage.setItem("alarmes", JSON.stringify(alarmes));
+
+      mostrarAlarmes();
+      document.getElementById('formAlarme').reset();
+    });
+
+    function excluirAlarme(index) {
+      if (confirm("Deseja excluir este alarme?")) {
+        alarmes.splice(index, 1);
+        localStorage.setItem("alarmes", JSON.stringify(alarmes));
+        mostrarAlarmes();
+      }
+    }
+
+    function editarAlarme(index) {
+      const novoNome = prompt("Novo nome:", alarmes[index].nome);
+      if (!novoNome) return;
+
+      const novaHora = prompt("Novo horário (HH:MM):", alarmes[index].hora);
+      if (!novaHora) return;
+
+      alarmes[index].nome = novoNome;
+      alarmes[index].hora = novaHora;
+      alarmes[index].disparadoHoje = false;
+
+      localStorage.setItem("alarmes", JSON.stringify(alarmes));
+      mostrarAlarmes();
+    }
+
+    mostrarAlarmes();
+  </script>
+
+  <!-- Importa o sistema global -->
+  <script src="../assets/js/alarmes.js"></script>
+
+</body>
+</html>

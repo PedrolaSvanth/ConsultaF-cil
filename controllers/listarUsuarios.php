@@ -1,37 +1,46 @@
 <?php
 include '../config/conexao.php';
 
-$sql = 
-"SELECT 
-    u.*, 
-    ev.status_verificacao AS status_email
- FROM usuarios u
- LEFT JOIN email_verificacoes ev ON u.id = ev.usuario_id
- ORDER BY u.id ASC
+$sql = "
+    SELECT 
+        c.id,
+        c.nome_completo,
+        c.email,
+        c.cpf,
+        c.data_nascimento,
+        c.cep,
+        c.endereco,
+        c.complemento,
+        c.apelido,
+        ev.status_verificacao AS status_email
+    FROM clientes c
+    LEFT JOIN email_verificacoes ev 
+        ON c.id = ev.cliente_id
+    ORDER BY c.id ASC
 ";
+
 $resultado = $conn->query($sql);
 
 $linhas = "";
 
-if ($resultado->num_rows > 0) {
+if ($resultado && $resultado->num_rows > 0) {
     while ($linha = $resultado->fetch_assoc()) {
+        // Se não tiver registro de verificação, mostra "Sem verificação"
         $status = $linha['status_email'] ?? 'Sem verificação';
 
         $linhas .= "
         <tr>
             <td>{$linha['id']}</td>
-            <td>{$linha['nome']}</td>
+            <td>{$linha['nome_completo']}</td>
+            <td>{$linha['apelido']}</td>
             <td>{$linha['email']}</td>
             <td>{$linha['cpf']}</td>
-            <td>{$linha['telefone']}</td>
-            <td>{$linha['data_nasc']}</td>
+            <td>{$linha['data_nascimento']}</td>
             <td>{$linha['cep']}</td>
             <td>{$linha['endereco']}</td>
-            <td>{$linha['numero']}</td>
             <td>{$linha['complemento']}</td>
-            <td>{$linha['status_email']}</td>
+            <td>{$status}</td>
             <td>
-                
                 <form action='../controllers/editarUsuario.php' method='GET' style='display:inline;'>
                     <input type='hidden' name='id' value='{$linha['id']}'>
                     <button type='submit' class='edit'>Editar</button>
@@ -47,7 +56,8 @@ if ($resultado->num_rows > 0) {
         </tr>";
     }
 } else {
-    $linhas = "<tr><td colspan='12' style='text-align:center;'>Nenhum usuário encontrado</td></tr>";
+    // 10 colunas de dados + 1 de ações = 11
+    $linhas = "<tr><td colspan='11' style='text-align:center;'>Nenhum cliente encontrado</td></tr>";
 }
 
 $html = file_get_contents('../pages/lista_cadastrados_v2.html');
