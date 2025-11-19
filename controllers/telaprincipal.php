@@ -56,7 +56,7 @@ if ($cliente_id) {
 
       <div class="buttons">
         <button class="home-btn"><i class="fas fa-pills"></i> Consultar Medicamentos</button>
-        <button class="home-btn"><i class="fas fa-file-medical"></i> Verificar Receitas</button>
+        <button class="home-btn" onclick="window.location.href='../controllers/cadastro_receita.php'"><i class="fas fa-file-medical"></i> Verificar Receitas</button>
         <button class="home-btn"><i class="fas fa-bell"></i> Verificar Alarmes de Remédios</button>
         <button class="home-btn"><i class="fas fa-map-marker-alt"></i> Localizar Farmácias</button>
       </div>
