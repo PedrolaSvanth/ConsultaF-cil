@@ -57,7 +57,9 @@ if ($cliente_id) {
             <p>Escolha uma das opções abaixo:</p>
 
             <div class="buttons">
-                <button class="home-btn"><i class="fas fa-pills"></i> Consultar Medicamentos</button>
+                <button class="home-btn" onclick="window.location.href='consultar_medicamentos.php'">
+                    <i class="fas fa-pills"></i> Consultar Medicamentos
+                </button>
                 <button class="home-btn"><i class="fas fa-file-medical"></i> Verificar Receitas</button>
                 <button class="home-btn"><i class="fas fa-bell"></i> Verificar Alarmes de Remédios</button>
                 <button class="home-btn" onclick="window.location.href='../pages/localizar_farmacias.php'">

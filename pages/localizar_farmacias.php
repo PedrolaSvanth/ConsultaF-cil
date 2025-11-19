@@ -113,7 +113,7 @@ $cepCompleto = $cepNumeros . ", Brazil";
             <div id="map"></div>
 
             <br>
-            <button class="home-btn" onclick="window.location.href='home.html'">
+            <button class="home-btn" onclick="window.location.href='../controllers/telaprincipal.php'">
                 <i class="fas fa-arrow-left"></i> Voltar para Home
             </button>
         </div>
