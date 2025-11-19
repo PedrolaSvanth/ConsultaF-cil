@@ -26,10 +26,13 @@ $cliente = $result->fetch_assoc();
 // Tira tudo que não é número do CEP
 $cepNumeros = preg_replace('/\D/', '', $cliente['cep']);
 
-// 1) Endereço completo
-// 2) Apenas o CEP (que costuma geocodificar melhor)
-$enderecoCompleto = $cliente['endereco'] . ", Brazil";
-$cepCompleto = $cepNumeros . ", Brazil";
+// 1) Endereço completo que vai pro Nominatim
+$enderecoCompleto = $cliente['endereco'] . ', ' . $cliente['cep'] . ', Brasil';
+
+// 2) CEP puro – pode ficar guardado, mas NÃO vamos usar sozinho pra geocode
+$cepCompleto = $cepNumeros;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -141,7 +144,6 @@ $cepCompleto = $cepNumeros . ", Brazil";
         let userLon = null;
         let userDisplayName = "";
 
-        // Agora chama o geocode.php em vez do Nominatim direto
         async function geocode(address) {
             console.log("Geocodificando:", address);
 
@@ -170,13 +172,12 @@ $cepCompleto = $cepNumeros . ", Brazil";
             };
         }
 
-        // Em vez de tentar endereço completo e depois CEP,
-        // usa diretamente o CEP do cliente (que já está funcionando bem)
-        async function geocodeUser() {
-            console.log("Geocodificando pelo CEP do usuário...");
-            return await geocode(USER_ZIP);
-        }
 
+        // Tenta primeiro com o endereço completo (endereço + CEP + Brasil)
+        async function geocodeUser() {
+            console.log("Tentando geocodificar pelo endereço completo...");
+            return await geocode(USER_ADDRESS);
+        }
 
 
         // Buscar farmácias via Overpass API
@@ -299,7 +300,6 @@ $cepCompleto = $cepNumeros . ", Brazil";
         }
 
 
-        // Função para buscar em outra região (nome, CEP ou endereço)
         async function buscarPorTexto() {
             const texto = document.getElementById('busca').value.trim();
             if (!texto) {
@@ -308,10 +308,10 @@ $cepCompleto = $cepNumeros . ", Brazil";
             }
 
             try {
-                const geo = await geocode(texto);
+                // ajuda o Nominatim a focar no Brasil
+                const geo = await geocode(texto + ', Brasil');
                 map.setView([geo.lat, geo.lon], 15);
 
-                // Move (ou cria) um marcador "região de busca"
                 if (!userMarker) {
                     userMarker = L.marker([geo.lat, geo.lon]).addTo(map);
                 } else {
@@ -325,6 +325,7 @@ $cepCompleto = $cepNumeros . ", Brazil";
                 alert("Local não encontrado. Tente refinar sua busca.");
             }
         }
+
 
         // Eventos
         document.getElementById('btnBuscar').addEventListener('click', buscarPorTexto);
