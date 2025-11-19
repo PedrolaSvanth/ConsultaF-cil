@@ -114,9 +114,13 @@ CREATE TABLE receitas_medicas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT NOT NULL,
     nome_paciente VARCHAR(150) NOT NULL,
+    medicamento VARCHAR(100) NOT NULL,
     descricao TEXT NOT NULL,
+    dosagem VARCHAR(50),
+    frequencia VARCHAR(50) NOT NULL,
     data_criacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    ativo TINYINT(1) NOT NULL DEFAULT 1,
+    ativo TINYINT NOT NULL DEFAULT 1,
+    
     
     CONSTRAINT fk_receitas_usuario
         FOREIGN KEY (cliente_id) REFERENCES clientes(id)

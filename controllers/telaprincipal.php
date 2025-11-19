@@ -56,19 +56,14 @@ if ($cliente_id) {
             <h2>Bem-vindo(a)!</h2>
             <p>Escolha uma das opções abaixo:</p>
 
-            <div class="buttons">
-                <button class="home-btn" onclick="window.location.href='consultar_medicamentos.php'">
-                    <i class="fas fa-pills"></i> Consultar Medicamentos
-                </button>
-                <button class="home-btn"><i class="fas fa-file-medical"></i> Verificar Receitas</button>
-                <button class="home-btn"><i class="fas fa-bell"></i> Verificar Alarmes de Remédios</button>
-                <button class="home-btn" onclick="window.location.href='../pages/localizar_farmacias.php'">
-                    <i class="fas fa-map-marker-alt"></i> Localizar Farmácias
-                </button>
-
-            </div>
-        </div>
+      <div class="buttons">
+        <button class="home-btn"><i class="fas fa-pills"></i> Consultar Medicamentos</button>
+        <button class="home-btn"><i class="fas fa-file-medical"></i> Verificar Receitas</button>
+        <button class="home-btn"><i class="fas fa-bell"></i> Verificar Alarmes de Remédios</button>
+        <button class="home-btn"><i class="fas fa-map-marker-alt"></i> Localizar Farmácias</button>
+      </div>
     </div>
+</div>
 
     <!-- Modal de informações do usuário -->
     <div id="modalUser" class="modal">
