@@ -97,7 +97,7 @@ $receita = $result->fetch_assoc();
         </form>
 
         <br>
-        <a href="listar_receitas.php">Voltar para listagem</a>
+        <a href="../models/listarReceitas.php">Voltar para listagem</a>
     </div>
 </body>
 </html>

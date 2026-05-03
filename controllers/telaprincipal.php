@@ -60,7 +60,7 @@ if ($cliente_id) {
         <!-- <a href="consultar_medicamentos.php" class="home-btn"> Consultar Medicamentos</a> -->
          <a href="consultar_medicamentos.php" class="home-btn"> Consultar Medicamentos</a>
          <!-- <a href="listar_receitas.php" class="home-btn"> Verificar Receitas</a> -->
-          <a href="listar_receitas.php" class="home-btn" > Verificar Receitas</a>
+          <a href="../models/listarReceitas.php" class="home-btn" > Verificar Receitas</a>
         <!-- <a href="assets/js/alarmes.js" class="home-btn"> Verificar Alarmes de Remédios</a> -->
          <a href="../views/alarmes.html" class="home-btn"> Verificar Alarmes de Remédios</a>
         <!-- <a href="assets/js/alarmes.js" class="home-btn"> Localizar Farmácias</a> -->

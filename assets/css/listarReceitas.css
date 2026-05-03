@@ -1,0 +1,86 @@
+.home-container.med-list {
+            width: 100%;
+            max-width: 760px;
+            box-sizing: border-box;
+        }
+        .med-table-wrapper {
+            margin-top: 15px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            padding: 10px 15px;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .med-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            table-layout: auto;
+        }
+        .med-table th,
+        .med-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0f5f9;
+            word-wrap: break-word;
+            word-break: break-word;
+            text-align: center;
+            width: 140px;
+        }
+        .med-table th {
+            background-color: #00a5c6;
+            color: #fff;
+            border-bottom: 2px solid #0091a6;
+        }
+        .med-table tr:nth-child(even) {
+            background-color: #f4fbfd;
+        }
+        .med-table tr:hover {
+            background-color: #e9f7fb;
+        }
+        .med-table .center {
+            text-align: center;
+        }
+        .back-btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+        .link-actions {
+            display: inline-flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .success-message {
+            color: #2d7a2d;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+
+button.edit, button.deactivate {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+button.edit {
+  background-color: #00a5c6;
+  color: white;
+}
+
+button.edit:hover {
+  background-color: #00b5da;
+}
+
+button.deactivate {
+  background-color: #e65c5c;
+  color: white;
+}
+
+button.deactivate:hover {
+  background-color: #ff6666;
+}

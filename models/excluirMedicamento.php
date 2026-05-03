@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id <= 0) {
         echo "<script>
                 alert('ID de medicamento inválido.');
-                window.location.href = '../controllers/listarMedicamentos.php';
+                window.location.href = '../models/listarMedicamentos.php';
               </script>";
         exit;
     }
@@ -38,14 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $conn->commit();
             echo "<script>
                     alert('✅ Medicamento excluído com sucesso!');
-                    window.location.href = '../controllers/listarMedicamentos.php';
+                    window.location.href = '../models/listarMedicamentos.php';
                   </script>";
         } else {
             // Nenhuma linha apagada
             $conn->rollback();
             echo "<script>
                     alert('❌ Medicamento não encontrado.');
-                    window.location.href = '../controllers/listarMedicamentos.php';
+                    window.location.href = '../models/listarMedicamentos.php';
                   </script>";
         }
 
@@ -53,12 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->rollback();
         echo "<script>
                 alert('❌ Erro ao excluir: " . addslashes($e->getMessage()) . "');
-                window.location.href = '../controllers/listarMedicamentos.php';
+                window.location.href = '../models/listarMedicamentos.php';
               </script>";
     }
 
     $conn->close();
 } else {
-    header("Location: ../controllers/listarMedicamentos.php");
+    header("Location: ../models/listarMedicamentos.php");
     exit;
 }

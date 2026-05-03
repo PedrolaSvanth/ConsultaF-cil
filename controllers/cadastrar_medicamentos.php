@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "<script>
                 alert('✅ Medicamento cadastrado com sucesso!');
-                window.location.href = '../controllers/listarMedicamentos.php';
+                window.location.href = '../models/listarMedicamentos.php';
               </script>";
     } else {
         echo "<script>
@@ -46,6 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 } else {
-    header('Location: ../controllers/listarMedicamentos.php');
+    header('Location: ../models/listarMedicamentos.php');
     exit;
 }

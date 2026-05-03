@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minhas Receitas Médicas</title>
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="stylesheet" href="../assets/css/home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/listarReceitas.css" />
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="title"><span>Consulta Fácil</span></div>
+
+    <div class="home-container med-list">
+        <h2>Minhas Receitas Médicas</h2>
+
+        <div class="link-actions">
+            <a href="../controllers/cadastro_receita.php" class="home-btn">Cadastrar nova receita</a>
+            <a href="../controllers/telaprincipal.php" class="home-btn">Voltar ao início</a>
+        </div>
+
+            <div class="med-table-wrapper">
+                <table class="med-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Paciente</th>
+                            <th>Medicamento</th>
+                            <!-- tem que adicionar dosagem e descricao -->
+                            <th>Frequência</th>
+                            <th>Data de Criação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- AQUI VAI A TABELA -->
+                    </tbody>
+                </table>
+            </div>
+
+        <button class="home-btn back-btn" onclick="window.location.href='../controllers/telaprincipal.php'">
+            <i class="fas fa-arrow-left"></i> Voltar para a tela inicial
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

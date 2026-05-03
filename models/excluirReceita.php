@@ -9,12 +9,12 @@ if (!isset($_SESSION['cliente_id'])) {
 
 $cliente_id = $_SESSION['cliente_id'];
 
-if (!isset($_GET['id'])) {
-    header("Location: listar_receitas.php");
+if (!isset($_POST['id'])) {
+    header("Location: listarReceitas.php");
     exit();
 }
 
-$id_receita = (int) $_GET['id'];
+$id_receita = (int) $_POST['id'];
 
 $sql = "DELETE from receitas_medicas WHERE id = ? AND cliente_id = ?";
 $stmt = $conn->prepare($sql);
@@ -27,13 +27,13 @@ if ($stmt->affected_rows > 0) {
             alert('✅ Receita excluída com sucesso!');
             // Espera 1.5 segundos e volta à página de listagem
             setTimeout(() => {
-                window.location.href = '../controllers/listar_receitas.php';
+                window.location.href = '../models/listarReceitas.php';
             }, 100);
         </script>";
 } else {
     echo "
         <script>
             alert('❌ Erro ao excluir: " . addslashes($conn->error) . "');
-            window.location.href = '../controllers/listar_receitas.php';
+            window.location.href = '../models/listarReceitas.php';
         </script> ";
 }
