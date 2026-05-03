@@ -1,5 +1,5 @@
 <?php
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 if (!isset($_GET['token'])) {
     echo "<script>alert('Token inválido!'); window.location.href='../pages/login_v2.html';</script>";

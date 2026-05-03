@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 $cliente_id = $_SESSION['cliente_id'] ?? null;
 $apelido = $_SESSION['apelido'] ?? 'Usuário';
@@ -57,9 +57,13 @@ if ($cliente_id) {
             <p>Escolha uma das opções abaixo:</p>
 
       <div class="buttons">
-        <button class="home-btn"><i class="fas fa-pills"></i> Consultar Medicamentos</button>
-        <button class="home-btn"><i class="fas fa-file-medical"></i> Verificar Receitas</button>
-        <button class="home-btn"><i class="fas fa-bell"></i> Verificar Alarmes de Remédios</button>
+        <!-- <a href="consultar_medicamentos.php" class="home-btn"> Consultar Medicamentos</a> -->
+         <a href="consultar_medicamentos.php" class="home-btn"> Consultar Medicamentos</a>
+         <!-- <a href="listar_receitas.php" class="home-btn"> Verificar Receitas</a> -->
+          <a href="listar_receitas.php" class="home-btn" > Verificar Receitas</a>
+        <!-- <a href="assets/js/alarmes.js" class="home-btn"> Verificar Alarmes de Remédios</a> -->
+         <a href="../views/alarmes.html" class="home-btn"> Verificar Alarmes de Remédios</a>
+        <!-- <a href="assets/js/alarmes.js" class="home-btn"> Localizar Farmácias</a> -->
         <button class="home-btn"><i class="fas fa-map-marker-alt"></i> Localizar Farmácias</button>
       </div>
     </div>

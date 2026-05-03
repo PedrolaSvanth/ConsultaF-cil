@@ -1,6 +1,5 @@
 <?php 
-include '../config/conexao.php';
-
+include '../models/conexao.php';
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $id = $_POST["id"];

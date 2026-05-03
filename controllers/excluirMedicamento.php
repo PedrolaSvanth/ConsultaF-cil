@@ -1,5 +1,5 @@
 <?php
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = isset($_POST['id_medicamento']) ? (int)$_POST['id_medicamento'] : 0;

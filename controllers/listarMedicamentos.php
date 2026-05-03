@@ -1,5 +1,5 @@
 <?php
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 // Busca todos os medicamentos
 $sql = "SELECT id_medicamento, nome_comercial, principio_ativo, uso_restrito,

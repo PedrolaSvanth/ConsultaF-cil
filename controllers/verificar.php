@@ -1,5 +1,5 @@
 <?php
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 if (isset($_GET['codigo']) && isset($_GET['email'])) {
     $codigo = $_GET['codigo'];

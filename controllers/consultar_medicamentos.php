@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 $apelido = $_SESSION['apelido'] ?? 'Usuário';
 

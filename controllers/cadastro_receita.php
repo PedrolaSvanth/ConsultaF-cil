@@ -1,5 +1,5 @@
 <?php
-include '../config/conexao.php';
+include '../models/conexao.php';
 session_start();
 
 // Verifica se o cliente está logado
@@ -74,9 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
 
         <br>
-        <button href="../controllers/listar_receitas.php">Listar Receitas</button>
-        <br>
-        <button href="../controllers/telaprincipal.php">Voltar</button>
+        <a href="../controllers/telaprincipal.php" class="home-btn">Voltar</a>
     </div>
 </body>
 </html>

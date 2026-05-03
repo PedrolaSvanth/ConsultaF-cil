@@ -1,4 +1,4 @@
-<?php include '../config/conexao.php'; 
+<?php include '../models/conexao.php'; 
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

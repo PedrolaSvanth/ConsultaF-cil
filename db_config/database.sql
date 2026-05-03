@@ -1,5 +1,5 @@
-CREATE DATABASE cadastro_cliente_saude;
-USE cadastro_cliente_saude;
+CREATE DATABASE consulta_facil;
+USE consulta_facil;
 
 CREATE TABLE clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,

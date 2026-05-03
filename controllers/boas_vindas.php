@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cliente_id = $_SESSION['cliente_id'];

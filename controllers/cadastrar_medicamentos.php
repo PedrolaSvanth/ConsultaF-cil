@@ -1,5 +1,5 @@
 <?php
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome_comercial     = trim($_POST['nome_comercial'] ?? '');

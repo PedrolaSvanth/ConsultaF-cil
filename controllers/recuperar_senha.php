@@ -3,7 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
-include '../config/conexao.php';
+include '../models/conexao.php';
 
 $email = $_POST['email'] ?? '';
 

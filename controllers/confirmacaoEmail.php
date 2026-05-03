@@ -3,7 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
-include '../config/conexao.php'; // conexão com o banco
+include '../models/conexao.php'; // conexão com o banco
 
 $sql = "
         SELECT 
