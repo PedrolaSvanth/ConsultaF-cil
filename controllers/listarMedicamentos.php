@@ -36,7 +36,7 @@ $result = $conn->query($sql);
         </header>
 
         <section class="user-section">
-            <a class="add-user" href="../pages/cadastro_medicamentos.html">Cadastrar Medicamento</a>
+            <a class="add-user" href="../views/cadastro_medicamentos.html">Cadastrar Medicamento</a>
 
             <table class="user-table">
                 <thead>
@@ -70,7 +70,7 @@ $result = $conn->query($sql);
                                     </button>
 
                                     <!-- Botão EXCLUIR -->
-                                    <form action="../controllers/excluirMedicamento.php" method="POST" style="display:inline;"
+                                    <form action="../models/excluirMedicamento.php" method="POST" style="display:inline;"
                                         onsubmit="return confirm('Tem certeza que deseja excluir este medicamento?');">
                                         <input type="hidden" name="id_medicamento"
                                             value="<?php echo $row['id_medicamento']; ?>">

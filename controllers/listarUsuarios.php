@@ -46,7 +46,7 @@ if ($resultado && $resultado->num_rows > 0) {
                     <button type='submit' class='edit'>Editar</button>
                 </form>
 
-                <form action='../controllers/excluirUsuario.php' method='POST' style='display:inline;'>
+                <form action='../models/excluirUsuario.php' method='POST' style='display:inline;'>
                     <input type='hidden' name='id' value='{$linha['id']}'>
                     <button type='submit' class='deactivate' onclick='return confirm(\"Deseja realmente excluir este usuário?\");'>
                         Excluir
@@ -60,7 +60,7 @@ if ($resultado && $resultado->num_rows > 0) {
     $linhas = "<tr><td colspan='11' style='text-align:center;'>Nenhum cliente encontrado</td></tr>";
 }
 
-$html = file_get_contents('../pages/lista_cadastrados_v2.html');
+$html = file_get_contents('../views/lista_cadastrados_v2.html');
 $html = str_replace('<!-- AQUI VAI A TABELA -->', $linhas, $html);
 
 echo $html;

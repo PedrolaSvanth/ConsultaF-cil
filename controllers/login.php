@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "<script>
                 alert('❌ CPF ou apelido incorretos.');
-                window.location.href='../pages/login_v2.html';
+                window.location.href='../views/login_v2.html';
               </script>";
         exit;
     }

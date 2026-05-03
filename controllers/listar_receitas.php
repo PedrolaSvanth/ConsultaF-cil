@@ -131,7 +131,7 @@ $result = $stmt->get_result();
                             <td><?php echo $row['data_criacao']; ?></td>
                             <td class="acoes">
                                 <a href="editar_receita.php?id=<?php echo $row['id']; ?>">Editar</a>
-                                <a href="excluir_receita.php?id=<?php echo $row['id']; ?>"
+                                <a href="../models/excluirReceita.php?id=<?php echo $row['id']; ?>"
                                    onclick="return confirm('Tem certeza que deseja excluir esta receita?');">Excluir</a>
                             </td>
                         </tr>
