@@ -41,7 +41,7 @@ if ($resultado && $resultado->num_rows > 0) {
             <td>{$linha['complemento']}</td>
             <td>{$status}</td>
             <td>
-                <form action='../controllers/editarUsuario.php' method='GET' style='display:inline;'>
+                <form action='../models/editarUsuario.php' method='GET' style='display:inline;'>
                     <input type='hidden' name='id' value='{$linha['id']}'>
                     <button type='submit' class='edit'>Editar</button>
                 </form>

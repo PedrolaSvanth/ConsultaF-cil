@@ -12,19 +12,16 @@
   <div class="wrapper">
     <div class="title"><span>Atualizar Usuario</span></div>
 
-    <form action="../controllers/editarUsuario.php" method="post">
-    <input type="hidden" name="id" value="{ID_USUARIO}">
+    <form action="../models/editarUsuario.php" method="post">
+      <input type="hidden" name="id" value="{ID_USUARIO}">
 
-      <div class="row"><i class="fas fa-user"></i><input type="text" name="nome" placeholder="Nome completo" value="{NOME}" required></div>
+      <div class="row"><i class="fas fa-user"></i><input type="text" name="nome_completo" placeholder="Nome completo" value="{NOME_COMPLETO}" required></div>
+      <div class="row"><i class="fas fa-user-tag"></i><input type="text" name="apelido" placeholder="Apelido" value="{APELIDO}" required></div>
       <div class="row"><i class="fas fa-envelope"></i><input type="email" name="email" placeholder="Email" value="{EMAIL}" required></div>
       <div class="row"><i class="fas fa-id-card"></i><input type="text" name="cpf" placeholder="CPF" value="{CPF}" required></div>
-      <div class="row"><i class="fas fa-lock"></i><input type="password" name="senha" placeholder="Senha" required></div>
-      <div class="row"><i class="fas fa-lock"></i><input type="password" name="confirma_senha" placeholder="Confirmar Senha" required></div>
-      <div class="row"><i class="fas fa-phone"></i><input type="text" name="telefone" placeholder="Telefone" value="{TELEFONE}" required></div>
-      <div class="row"><i class="fas fa-calendar"></i><input type="date" name="data_nasc" value="{DATA_NASC}" required></div>
+      <div class="row"><i class="fas fa-calendar"></i><input type="date" name="data_nascimento" value="{DATA_NASCIMENTO}" required></div>
       <div class="row"><i class="fas fa-map-marker-alt"></i><input type="text" name="cep" placeholder="CEP" value="{CEP}" required></div>
       <div class="row"><i class="fas fa-home"></i><input type="text" name="endereco" placeholder="Endereço" value="{ENDERECO}" required></div>
-      <div class="row"><i class="fas fa-hashtag"></i><input type="text" name="numero" placeholder="Número" value="{NUMERO}" required></div>
       <div class="row"><i class="fas fa-edit"></i><input type="text" name="complemento" placeholder="Complemento" value="{COMPLEMENTO}"></div>
 
       
