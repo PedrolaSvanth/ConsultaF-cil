@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </h2>
 
         <div class="btn-container">
-            <form action="cadastro_cliente.php" method="get">
+            <form action="../models/cadastro_cliente.php" method="get">
                 <button type="submit" class="btn">Alterar cadastro</button>
             </form>
         </div>

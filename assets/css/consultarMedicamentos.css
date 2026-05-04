@@ -1,0 +1,63 @@
+/* Deixa o card um pouco mais largo só nessa tela */
+.home-container.med-list {
+    width: 100%;
+    max-width: 650px;
+    box-sizing: border-box;
+}
+
+/* Wrapper da tabela (card dentro do card) */
+.med-table-wrapper {
+    margin-top: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 10px 15px;
+    max-width: 100%;
+    overflow-x: auto; /* se estourar, cria scroll dentro do card */
+}
+
+/* Tabela de medicamentos */
+.med-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed; /* faz as colunas se ajustarem ao espaço */
+}
+
+.med-table th {
+    background-color: #00a5c6;
+    color: #fff;
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid #0091a6;
+}
+
+.med-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e0f5f9;
+}
+
+/* Permite quebra de texto dentro das células pra não estourar */
+.med-table th,
+.med-table td {
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.med-table tr:nth-child(even) {
+    background-color: #f4fbfd;
+}
+
+.med-table tr:hover {
+    background-color: #e9f7fb;
+}
+
+/* Centraliza colunas numéricas */
+.med-table .center {
+    text-align: center;
+}
+
+.back-btn {
+    margin-top: 20px;
+    width: 100%;
+}

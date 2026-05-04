@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta Fácil - Medicamentos</title>
+
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="stylesheet" href="../assets/css/home.css" />
+    <link rel="stylesheet" href="../assets/css/consultarMedicamentos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Botão do usuário no canto superior direito -->
+    <div class="user-btn-container">
+        <button class="user-btn" onclick="document.getElementById('modalUser').style.display='block'">
+            <i class="fas fa-user"></i> {APELIDO}
+        </button>
+    </div>
+
+    <div class="title"><span>Consulta Fácil</span></div>
+
+    <!-- adicionamos a classe med-list pra aplicar o CSS especial -->
+    <div class="home-container med-list">
+        <h2>Medicamentos Cadastrados</h2>
+        <p>Veja abaixo os medicamentos registrados no sistema:</p>
+
+        {TABELA_MEDICAMENTOS}
+
+        <!-- Botão para voltar à tela principal -->
+        <button class="home-btn back-btn"
+                onclick="window.location.href='../controllers/telaprincipal.php'">
+            <i class="fas fa-arrow-left"></i> Voltar para a tela inicial
+        </button>
+    </div>
+</div>
+
+<!-- Modal simples de usuário -->
+<div id="modalUser" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('modalUser').style.display='none'">&times;</span>
+        <h2>Usuário</h2>
+        <p>Logado como: <strong>{APELIDO}</strong></p>
+        <div class="modal-footer">
+            <a href="../controllers/telaprincipal.php" class="btn-alterar">Voltar</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fechar modal clicando fora
+    window.onclick = function (event) {
+        let modal = document.getElementById('modalUser');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

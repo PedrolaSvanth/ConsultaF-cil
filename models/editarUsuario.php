@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <script>
             alert('✅ Cadastro atualizado com sucesso!');
             setTimeout(() => {
-                window.location.href = '../models/listarUsuarios.php';
+                window.location.href = '../controllers/telaprincipal.php';
             }, 300);
         </script>";
     } else {

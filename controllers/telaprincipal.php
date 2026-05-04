@@ -58,7 +58,7 @@ if ($cliente_id) {
 
       <div class="buttons">
         <!-- <a href="consultar_medicamentos.php" class="home-btn"> Consultar Medicamentos</a> -->
-         <a href="consultar_medicamentos.php" class="home-btn"> Consultar Medicamentos</a>
+         <a href="../models/listarMedicamentosUser.php" class="home-btn"> Consultar Medicamentos</a>
          <!-- <a href="listar_receitas.php" class="home-btn"> Verificar Receitas</a> -->
           <a href="../models/listarReceitas.php" class="home-btn" > Verificar Receitas</a>
         <!-- <a href="assets/js/alarmes.js" class="home-btn"> Verificar Alarmes de Remédios</a> -->
@@ -105,10 +105,10 @@ if ($cliente_id) {
 
             <!-- Botão Alterar Cadastro -->
             <div class="modal-footer">
-                <a href="cadastro_cliente.php" class="btn-alterar">Alterar Cadastro</a>
+                <a href="../models/editarUsuario.php?id=<?php echo $cliente_id; ?>" class="btn-alterar">Alterar Cadastro</a>
             </div>
         </div>
-    </div>
+    </div>  
 
     <script>
         // Fechar modal clicando fora

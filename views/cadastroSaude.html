@@ -1,24 +1,3 @@
-<?php include '../models/conexao.php'; 
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    session_start();
-    $_SESSION['apelido'] = $_POST['apelido'];
-
-    // Salvar dados pessoais
-    $sql = "INSERT INTO clientes (nome_completo, cpf, data_nascimento, cep, endereco, complemento, email, apelido)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-if (!$stmt) {
-    die("Erro no prepare: " . $conn->error);
-}
-    $stmt->bind_param("ssssssss", $_POST['nome_completo'],$_POST['cpf'], $_POST['data_nascimento'], $_POST['cep'],
-        $_POST['endereco'], $_POST['complemento'], $_POST['email'], $_POST['apelido']);
-    $stmt->execute();
-    $_SESSION['cliente_id'] = $stmt->insert_id;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,7 +13,7 @@ if (!$stmt) {
 <body>
     <div class="container">
         <h2>Saúde</h2>
-        <form action="boas_vindas.php" method="POST">
+        <form action="../controllers/boas_vindas.php" method="POST">
 
             <!-- NOVO CAMPO ADICIONADO: TIPO SANGUÍNEO -->
             <label>Tipo sanguíneo:</label>
