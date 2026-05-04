@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Medicamento</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Medicamento</h2>
+
+        <form action="../controllers/atualizarMedicamento.php" method="POST">
+            <input type="hidden" name="id_medicamento" value="{ID_MEDICAMENTO}">
+
+            <label>Nome Comercial *</label>
+            <input type="text" name="nome_comercial" value="{NOME_COMERCIAL}" required>
+
+            <label>Princípio Ativo *</label>
+            <input type="text" name="principio_ativo" value="{PRINCIPIO_ATIVO}" required>
+
+            <label>Uso Restrito (tarja preta, etc.) *</label>
+            <select name="uso_restrito" required>
+                <option value="0" {USO_RESTRITO_NAO}>Não</option>
+                <option value="1" {USO_RESTRITO_SIM}>Sim</option>
+            </select>
+
+            <label>Quantidade em Estoque *</label>
+            <input type="number" name="quantidade_estoque" min="0" value="{QUANTIDADE_ESTOQUE}" required>
+
+            <label>Unidade de Medida</label>
+            <input type="text" name="unidade_medida" value="{UNIDADE_MEDIDA}" placeholder="Ex.: comprimidos, mg, ml">
+
+            <button type="submit">Salvar alterações</button>
+
+            <div style="margin-top: 10px; text-align:center;">
+                <a href="../models/listarMedicamentos.php">Voltar para lista de medicamentos</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

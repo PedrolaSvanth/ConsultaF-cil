@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Receita Médica</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Receita Médica</h2>
+
+        <form action="../controllers/editar_receita.php?id={ID_RECEITA}" method="POST">
+
+            <label>Nome do Paciente:</label>
+            <input type="text" name="nome_paciente" required value="{NOME_PACIENTE}">
+
+            <label>Medicamento (opcional):</label>
+            <input type="text" name="medicamento" value="{MEDICAMENTO}">
+
+            <label>Descrição / Observações da Receita:</label>
+            <textarea name="descricao" required>{DESCRICAO}</textarea>
+
+            <label>Dosagem (opcional):</label>
+            <input type="text" name="dosagem" value="{DOSAGEM}">
+
+            <label>Frequência:</label>
+            <input type="text" name="frequencia" required value="{FREQUENCIA}">
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+
+        <br>
+        <a href="../models/listarReceitas.php">Voltar para listagem</a>
+    </div>
+</body>
+</html>

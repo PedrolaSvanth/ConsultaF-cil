@@ -39,7 +39,7 @@ if($row = $resultado->fetch_assoc()) {
                         <td>{$row['frequencia']}</td>
                         <td>" . date("d/m/Y", strtotime($row['data_criacao'])) . "</td>
                         <td>
-                            <form action='../controllers/editar_receita.php' method='GET' style='display:inline;'>
+                            <form action='../models/editarReceita.php' method='GET' style='display:inline;'>
                                 <input type='hidden' name='id' value='{$row['id']}'>
                                 <button type='submit' class='edit'>Editar</button>
                             </form>

@@ -20,7 +20,7 @@ if ($resultado->num_rows > 0) {
                         <td>{$row['unidade_medida']}</td>
                         <td>{$row['data_cadastro']}</td>
                         <td>
-                            <form action='../controllers/editar_medicamento.php' method='GET' style='display:inline;'>
+                            <form action='../models/editarMedicamento.php' method='GET' style='display:inline;'>
                                 <input type='hidden' name='id' value='{$row['id_medicamento']}'>
                                 <button type='submit' class='edit'>Editar</button>
                             </form>
