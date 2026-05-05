@@ -10,7 +10,7 @@ if (!isset($_SESSION['cliente_id'])) {
 $cliente_id = $_SESSION['cliente_id'];
 
 // Busca receitas ativas do cliente
-$sql = "SELECT id, nome_paciente, medicamento, frequencia, data_criacao 
+$sql = "SELECT id, nome_paciente, medicamento, dosagem, descricao, frequencia, data_criacao 
         FROM receitas_medicas 
         WHERE cliente_id = ? AND ativo = 1
         ORDER BY data_criacao DESC";
@@ -33,9 +33,8 @@ if($row = $resultado->fetch_assoc()) {
                         <td>{$row['id']}</td>
                         <td>{$row['nome_paciente']}</td>
                         <td>{$row['medicamento']}</td>
-
-                        <!-- tem que adicionar dosagem e descricao -->
-
+                        <td>{$row['dosagem']}</td>
+                        <td>{$row['descricao']}</td>
                         <td>{$row['frequencia']}</td>
                         <td>" . date("d/m/Y", strtotime($row['data_criacao'])) . "</td>
                         <td>
@@ -51,7 +50,7 @@ if($row = $resultado->fetch_assoc()) {
                     </tr>";
     } while ($row = $resultado->fetch_assoc());
 } else {
-    $linhas = "<tr><td colspan='6  ' style='text-align:center;'>Você ainda não possui receitas cadastradas.</td></tr>";
+    $linhas = "<tr><td colspan='8' style='text-align:center;'>Você ainda não possui receitas cadastradas.</td></tr>";
 }
 
 $html = file_get_contents('../views/listarReceitas.html');

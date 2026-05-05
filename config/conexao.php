@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $usuario = "root";
-$senha = "12345"; // Coloque a senha do seu banco 
+$senha = "senac"; // Coloque a senha do seu banco 
 $banco = "consulta_facil"; // Coloque o nome do seu banco criado
 
 
