@@ -1,3 +1,6 @@
+<?php
+include '../models/conexao.php';
+
 class ReceitaModel{
 
     private $conn;
@@ -40,4 +43,10 @@ class ReceitaModel{
 
 
     }
+
+    // Método para atualizar/editar receita
+
+    // Método para excluir receita 
 }
+
+?>

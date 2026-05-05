@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $usuario = "root";
-$senha = "senac"; // Coloque a senha do seu banco 
+$senha = "SENHA_DO_MYSQL"; // Coloque a senha do seu banco 
 $banco = "consulta_facil"; // Coloque o nome do seu banco criado
 
 
